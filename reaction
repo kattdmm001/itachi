@@ -1,0 +1,32 @@
+<?php
+#---BαWorld Team---#
+// Author: Amonikα
+// Edited: Bo Emeljα
+// Version: 0.0.6 (2017)
+
+$limit_post = 20; # = 5 post
+$token = 'EAACEdEose0cBAHm86uOwK3pyTclUwZA19lHeoTpbMXCr3pF72rHIeoMchnhtQOByzAh8n77f0u03TTktJAoRkh0HCU1ZCMAhVh0hDANGDZCpIZB02IacgaoU0b8CPJOtZCnwCZB3E4DPUB5HUwT1Ng2y0vFpdU1467q1CH4ZAqkF5TwB795F7YRXZAHCHVtBa2nJB7MXoECIgvTBcVrWwdLZA'; # It is recommended to use iPhone Token [Suggest botexviet.com/login]
+$reactions_code = 'LOVE'; # LIKE/LOVE/HAHA/WOW/SAD/ANRY | PRIDE [Only in the end of June] -> Please select an reactions you want auto
+#[Remember] For 'PRIDE', you can like page LGBTQ@Facebook at https://www.facebook.com/LGBTQ (Reactions PRIDE Expires at the end of June)
+
+# Should not be edited (There may be an error) #
+$amonika = json_decode(bot_reactions('https://graph.facebook.com/me/home?fields=id,message,created_time,from,comments,type&access_token='.$token.'&offset=0&limit='.$limit_post.''),true);
+for($i=1;$i<=count($amonika[data]);$i++)
+{
+        set_time_limit(0);
+        $reactions = array($reactions_code);
+        $mess = $reactions[rand(0,count($reactions)-1)];
+echo bot_reactions('https://graph.facebook.com/'.$amonika[data][$i-1][id].'/reactions?type='.$mess.'&method=post&access_token='.$token.'');
+}
+
+# Curl - NEVER edit (default) # 
+function bot_reactions($bot)
+{
+      $data = curl_init();
+      curl_setopt($data, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($data, CURLOPT_URL, $bot);
+      $result = curl_exec($data);
+      curl_close($data);
+  return $result;
+}
+?>
