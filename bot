@@ -1,0 +1,67 @@
+
+<html lang="txt" version="1.0.7">
+<head>
+<meta charset="utf-8"/>
+<title>Bot Reactions</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
+<style>
+body {
+	font-family: Roboto
+}
+#token_input {
+	width: 600px
+}
+.token {
+	display: inline-block; 
+	position: relative; 
+	color: #6aafa3; 
+	padding: 0 10px; 
+	transition: all .3s; 
+	border: 1px solid; 
+	border-radius: 4px; 
+	font: 400 18px Monospace; 
+	}
+#input_full {
+	width:100%;
+}
+a:link { 
+text-decoration: none; 
+} 
+a:visited { 
+text-decoration: none; 
+} 
+a:hover { 
+text-decoration: none; 
+} 
+a:active { 
+text-decoration: none; 
+} 
+</style>
+</head>
+<body>
+<form action="/reaction/bot?gen=true" method="post">
+Token*<br/>
+<input type="text" placeholder="access_token (Suggest iPhone Token)" name="token" class="token" id="token_input" required />
+<br/>
+<br/>
+Reaction want auto?*<br/>
+<select name="react">
+  <option value="LIKE">LIKE</option>
+  <option value="LOVE">LOVE</option>
+  <option value="HAHA">HAHA</option>
+  <option value="WOW">WOW</option>
+  <option value="SAD">SAD</option>
+  <option value="ANRY">ANRY</option>
+  <option value="PRIDE">PRIDE</option>
+</select>
+<br/>
+<br/>
+<i class="fa fa-warning" aria-hidden="true"></i> Your IP will be stored for security reasons (Not archived token).</br>
+<button type="submit">Gen bot like</button>
+</form>
+<footer>
+<center><p>&copy; 2017 Amonika</p></center>
+</footer>
+  </body>
+</html>
